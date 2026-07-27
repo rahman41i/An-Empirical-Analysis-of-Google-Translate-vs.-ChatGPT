@@ -1,0 +1,80 @@
+# An Empirical Analysis of Google Translate vs. ChatGPT
+
+
+**Rahman Aliyev** 
+
+A multi-source econometric and time-series analysis examining whether the emergence of conversational generative AI models (ChatGPT) substitutes for or complements dedicated Machine Translation (MT) services (Google Translate, DeepL).
+
+By constructing a unified monthly panel dataset from three distinct public proxies—Google Trends search indices, Wikipedia Pageviews API, and Google Play Store review volumes—this project quantifies search attention shifts following ChatGPT's November 2022 release.
+
+---
+
+## Project structure
+
+```text
+01_extract_google_trends.py           automated Google Trends data fetcher
+01b_parse_manual_trends_export.py    parser for manual Google Trends CSV exports
+02_extract_wikipedia_pageviews.py    Wikipedia Pageviews API fetcher
+03_extract_app_reviews.py            Play Store review extraction via google-play-scraper
+04_merge_and_process.py             data cleaning, standardization, & monthly resampling
+05_analyze.py                        econometric modeling, regression, & cross-correlation
+new_project.ipynb                    exploratory analysis notebook
+data_milestones_manual.csv           annotated event and milestone dataset
+multiTimeline_2016.csv.csv           raw Google Trends monthly index (2016–2026)
+multiTimeline_5_years.csv            raw Google Trends weekly index
+plot_data_milestones_manual.png      output chart: annotated time-series
+relative_share.png                   output chart: relative attention share
+report/main.tex                      the project report (LaTeX)
+report/main.pdf.pdf                  compiled PDF report
+report/relative_share.png            embedded report figure
+```
+
+## Running the pipeline
+
+### 1. Installation
+
+Ensure Python 3.9+ is installed, then install the required dependencies:
+
+```bash
+pip install pandas numpy matplotlib seaborn scipy statsmodels google-play-scraper
+```
+
+### 2. Pipeline Execution
+
+To execute the data processing and econometric analysis pipeline from scratch, run the scripts in order from the project root:
+
+```bash
+python 04_merge_and_process.py
+python 05_analyze.py
+```
+
+- `04_merge_and_process.py` cleans raw trends and API data, normalizes column labels, handles missing or small values (`<1`), and outputs a unified monthly master panel dataset.
+- `05_analyze.py` executes the segmented linear regressions, computes time-lagged cross-correlations, calculates relative attention shares, and generates visual plots.
+
+## Key analytical methods
+
+1. **Segmented Linear Regression:** Evaluates structural trend breaks in Google Translate search intent pre- vs. post-ChatGPT release date (Nov 2022).
+2. **Time-Lagged Cross-Correlation:** Quantifies inverse synchronization ($r \approx -0.61$ to $-0.65$) across a $\pm 6$-month window between LLM growth and traditional MT search volume.
+3. **Relative Search Attention Share:** Decomposes aggregate web search query volume across ChatGPT, Google Translate, and DeepL by mid-2026.
+
+## Report
+
+`report/main.tex` is the project report written in LaTeX.
+
+### Compile
+
+- **Overleaf:** Upload the `report/` folder, set `main.tex` as the main document, and click Recompile.
+- **Local:** Navigate to the report folder and compile using your terminal:
+
+```bash
+cd report
+pdflatex main.tex
+pdflatex main.tex
+```
+
+Running it twice ensures all internal references, tables, and figure labels are resolved correctly. Alternatively, run `latexmk -pdf main.tex`.
+
+## Notes on methodology
+
+- **Search Attention vs. Market Share:** Google Trends indices measure relative web search interest and brand discovery queries, not total direct product utilization or API calls. Google Translate retains a massive baseline footprint (>1 billion active users) via browser integrations and direct access, which are not captured by search queries.
+- **Data Resampling:** All multi-source time series (weekly trends, daily pageviews, app reviews) are resampled and aligned to a uniform monthly frequency for econometric panel modeling.
