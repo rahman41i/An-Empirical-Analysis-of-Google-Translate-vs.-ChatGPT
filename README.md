@@ -1,8 +1,6 @@
 # An Empirical Analysis of Google Translate vs. ChatGPT
 
 
-**Rahman Aliyev** 
-
 A multi-source econometric and time-series analysis examining whether the emergence of conversational generative AI models (ChatGPT) substitutes for or complements dedicated Machine Translation (MT) services (Google Translate, DeepL).
 
 By constructing a unified monthly panel dataset from three distinct public proxies—Google Trends search indices, Wikipedia Pageviews API, and Google Play Store review volumes—this project quantifies search attention shifts following ChatGPT's November 2022 release.
