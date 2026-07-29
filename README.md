@@ -124,8 +124,6 @@ The cleaned dataset is also published on Kaggle: [Analyzing Google Translate vs.
 
 ## License
 
-## License
-
 - **Code** (Python scripts, notebook): [MIT License](LICENSE)
 - **Data** (`multiTimeline_2016.csv`, `multiTimeline_5_years.csv`, `data_milestones_manual.csv`, and derived datasets): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use, share, and adapt with attribution.
 - **Report** (`report/main.pdf`, `report/main.tex`): ©Rahman Aliyev, shared for reference; contact before reuse in other publications.
