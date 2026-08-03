@@ -9,21 +9,21 @@ By constructing a unified monthly panel dataset from three distinct public proxi
 ## Project structure
 
 ```
-01_extract_google_trends.py          automated Google Trends data fetcher (reference only — often rate-limited; not used downstream)
-01b_parse_manual_trends_export.py    parser for manual Google Trends CSV exports (the source 04 actually reads)
-02_extract_wikipedia_pageviews.py    Wikipedia Pageviews API fetcher
-03_extract_app_reviews.py            Play Store review extraction via google-play-scraper
-04_merge_and_process.py              data cleaning, standardization, & monthly resampling
-05_analyze.py                        econometric modeling, regression, & cross-correlation
-new_project.ipynb                    exploratory analysis notebook
-data_milestones_manual.csv           annotated event and milestone dataset
-multiTimeline_2016.csv               Google Trends monthly index, cleaned (2016–2026)
-multiTimeline_5_years.csv            Google Trends weekly index, cleaned (last 5 years)
-plot_data_milestones_manual.png      output chart: annotated time-series
-relative_share.png                   output chart: relative attention share
-report/main.tex                      the project report (LaTeX)
-report/main.pdf                      compiled PDF report
-report/relative_share.png            embedded report figure
+01_extract_google_trends.py                       automated Google Trends data fetcher (reference only — often rate-limited; not used downstream)
+01b_parse_manual_trends_export.py                 parser for manual Google Trends CSV exports (the source 04 actually reads)
+02_extract_wikipedia_pageviews.py                 Wikipedia Pageviews API fetcher
+03_extract_app_reviews.py                         Play Store review extraction via google-play-scraper
+04_merge_and_process.py                           data cleaning, standardization, & monthly resampling
+05_analyze.py                                     econometric modeling, regression, & cross-correlation
+an_analysis_google_translate_vs_chatgptipynb      exploratory analysis notebook
+data_milestones_manual.csv                        annotated event and milestone dataset
+multiTimeline_2016.csv                            Google Trends monthly index, cleaned (2016–2026)
+multiTimeline_5_years.csv                         Google Trends weekly index, cleaned (last 5 years)
+plot_data_milestones_manual.png                   output chart: annotated time-series
+relative_share.png                                output chart: relative attention share
+report/main.tex                                   the project report (LaTeX)
+report/main.pdf                                   compiled PDF report
+report/relative_share.png                         embedded report figure
 ```
 
 ## Running the pipeline
